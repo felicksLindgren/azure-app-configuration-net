@@ -15,13 +15,9 @@ public class WeatherForecastController : ControllerBase
 
     private readonly ILogger<WeatherForecastController> _logger;
 
-    private readonly IFeatureManager _featureManager;
-
     public WeatherForecastController(
-        IFeatureManager featureManager,
         ILogger<WeatherForecastController> logger)
     {
-        _featureManager = featureManager;
         _logger = logger;
     }
 
