@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.FeatureManagement;
 using Microsoft.FeatureManagement.Mvc;
 
 namespace FeatureApi.Controllers;
@@ -15,8 +14,7 @@ public class WeatherForecastController : ControllerBase
 
     private readonly ILogger<WeatherForecastController> _logger;
 
-    public WeatherForecastController(
-        ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
         _logger = logger;
     }
@@ -24,7 +22,7 @@ public class WeatherForecastController : ControllerBase
     [FeatureGate(MyFeatureFlags.FeatureA)]
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
-    {   
+    {
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateTime.Now.AddDays(index),
